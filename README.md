@@ -21,10 +21,8 @@ Execute : `docker-compose -f docker-compose-remote-write.yaml up`
 
 ### Result
 
-Origin is scrapping metrics from sample application after some satrtup time
-
-Remote-writing is sending data scrapped to target
-
+Origin is scrapping metrics from sample application after some satrtup time  
+Remote-writing is sending data scrapped to target  
 Target have new datas
 
 ## Remote-write (Backfill)
@@ -40,8 +38,7 @@ Configuration :
 Execute : `docker-compose -f docker-compose-remote-write-backfill.yaml up`
 
 ### Result
-Origin have the original datas [query](http://localhost:9090/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h&g0.end_input=2022-03-31%2009%3A00%3A00&g0.moment_input=2022-03-31%2009%3A00%3A00)
-
+Origin have the original datas [query](http://localhost:9090/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h&g0.end_input=2022-03-31%2009%3A00%3A00&g0.moment_input=2022-03-31%2009%3A00%3A00)  
 Target doesn't have the datas [query](http://localhost:9091/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h&g0.end_input=2022-03-31%2009%3A00%3A00&g0.moment_input=2022-03-31%2009%3A00%3A00)
 
 
@@ -59,14 +56,10 @@ Configuration :
 Execute : `docker-compose -f docker-compose-remote-read.yaml up`
 
 ### Result
-Origin have some existing datas [query](http://localhost:9090/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h&g0.end_input=2022-03-31%2009%3A00%3A00&g0.moment_input=2022-03-31%2009%3A00%3A00)
+Origin have some existing datas [query](http://localhost:9090/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h&g0.end_input=2022-03-31%2009%3A00%3A00&g0.moment_input=2022-03-31%2009%3A00%3A00)  
+Target will read from origin for exsiting datas [query](http://localhost:9091/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h&g0.end_input=2022-03-31%2009%3A00%3A00&g0.moment_input=2022-03-31%2009%3A00%3A00)  
+Target will read new datas from application [query](http://localhost:9091/graph?g0.expr=coffee_drank_cl)  
 
-Target will read from origin for exsiting datas [query](http://localhost:9091/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h&g0.end_input=2022-03-31%2009%3A00%3A00&g0.moment_input=2022-03-31%2009%3A00%3A00)
-
-Target will read new datas from application [query](http://localhost:9091/graph?g0.expr=coffee_drank_cl)
-
-:warning: Target will not copy data from origin
-
-You can stop origin with `docker-compose -f docker-compose-remote-read.yaml stop origin` and [query](http://localhost:9090/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h&g0.end_input=2022-03-31%2009%3A00%3A00&g0.moment_input=2022-03-31%2009%3A00%3A00) will not send back data
-
-Restart origin with `docker-compose -f docker-compose-remote-read.yaml start origin` and data will be back [query](http://localhost:9091/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h&g0.end_input=2022-03-31%2009%3A00%3A00&g0.moment_input=2022-03-31%2009%3A00%3A00)
+:warning: Target will not copy data from origin  
+You can stop origin with `docker-compose -f docker-compose-remote-read.yaml stop origin` and [query](http://localhost:9090/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h&g0.end_input=2022-03-31%2009%3A00%3A00&g0.moment_input=2022-03-31%2009%3A00%3A00) will not send back data  
+Restart origin with `docker-compose -f docker-compose-remote-read.yaml start origin` and data will be back [query](http://localhost:9091/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h&g0.end_input=2022-03-31%2009%3A00%3A00&g0.moment_input=2022-03-31%2009%3A00%3A00)  
