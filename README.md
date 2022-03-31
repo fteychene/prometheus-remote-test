@@ -13,13 +13,13 @@ Setup :
  - Sample application
 
 Configuration :
- - Origin : [origin/config/prometheus.yml] (Scrape application)
- - Target: [target/config/prometheus.yml] (Scrape application)
+ - Origin : [origin/config/prometheus.yml]() (Scrape application)
+ - Target: [target/config/prometheus.yml]() (Scrape application)
 
  Execute : ``
 
- Query sample in origin => [http://localhost:9090/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h]  
- Query sample in target => [http://localhost:9091/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h]
+ Query sample in origin =>[http://localhost:9090/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h
+ Query sample in target => http://localhost:9091/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h
 
 ## Remote-write
 
