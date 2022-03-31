@@ -14,7 +14,7 @@ Setup :
 
 Configuration :
  - Origin : [origin/config/prometheus.yml](origin/config/prometheus.yml) (Scrape application)
- - Target: [](target/config/prometheus.yml) (Scrape application)
+ - Target: [target/config/prometheus.yml](target/config/prometheus.yml) (Scrape application)
 
  Execute : `docker-compose up`
 
@@ -28,8 +28,8 @@ Setup :
  - Sample application
 
 Configuration :
- - Origin : [origin/config/prometheus-remote-write.yml]() (Remote-write + Scrape application)
- - Target: [target/config/prometheus.yml]()
+ - Origin : [origin/config/prometheus-remote-write.yml](origin/config/prometheus-remote-write.yml) (Remote-write + Scrape application)
+ - Target: [target/config/prometheus.yml](target/config/prometheus.yml)
 
 Execute : `docker-compose -f docker-compose-remote-write.yaml up`
 
@@ -46,8 +46,8 @@ Setup :
  - Prometheus Target (9091) with no data
 
 Configuration :
- - Origin : [origin/config/prometheus-remote-write-backfill.yml]() (Remote-write)
- - Target: [target/config/prometheus.yml]()
+ - Origin : [origin/config/prometheus-remote-write-backfill.yml](origin/config/prometheus-remote-write-backfill.yml) (Remote-write)
+ - Target: [target/config/prometheus.yml](target/config/prometheus.yml)
 
 Execute : `docker-compose -f docker-compose-remote-write-backfill.yaml up`
 
@@ -64,8 +64,8 @@ Setup :
  - Sample application
 
 Configuration :
- - Origin : [origin/config/prometheus-remote-write-backfill.yml]()
- - Target: [target/config/prometheus.yml]() (Remote-read + Scape application)
+ - Origin : [origin/config/prometheus-remote-write-backfill.yml](origin/config/prometheus-remote-write-backfill.yml)
+ - Target: [target/config/prometheus.yml](target/config/prometheus.yml) (Remote-read + Scape application)
 
 Execute : `docker-compose -f docker-compose-remote-read.yaml up`
 
