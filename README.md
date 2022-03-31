@@ -6,16 +6,31 @@
 - `docker-compose`
 - Build sample app : `./sample-app/gradlew -p sample-app/ --no-daemon --no-scan --no-watch-fs jibDockerBuild`
 
-## Remote-write
-
-2 prometheus
- - Origin (9090) with no datas
- - Target (9091) with no data
+## Basic configuration
+Setup :
+ - Prometheus Origin (9090) with no datas
+ - Prometheus Target (9091) with no data
  - Sample application
 
 Configuration :
- - Origin : origin/config/prometheus-remote-write.yml (Remote-write + Scrape application)
- - Target: target/config/prometheus.yaml
+ - Origin : [origin/config/prometheus.yml] (Scrape application)
+ - Target: [target/config/prometheus.yml] (Scrape application)
+
+ Execute : ``
+
+ Query sample in origin => [http://localhost:9090/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h]  
+ Query sample in target => [http://localhost:9091/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h]
+
+## Remote-write
+
+Setup :
+ - Prometheus Origin (9090) with no datas
+ - Prometheus Target (9091) with no data
+ - Sample application
+
+Configuration :
+ - Origin : [origin/config/prometheus-remote-write.yml] (Remote-write + Scrape application)
+ - Target: [target/config/prometheus.yml]
 
 Execute : `docker-compose -f docker-compose-remote-write.yaml up`
 
@@ -27,13 +42,13 @@ Target have new datas
 
 ## Remote-write (Backfill)
 
-2 prometheus
- - Origin (9090) with existing datas
- - Target (9091) with no data
+Setup :
+ - Prometheus Origin (9090) with existing datas
+ - Prometheus Target (9091) with no data
 
 Configuration :
- - Origin : origin/config/prometheus-remote-write-backfill.yml (Remote-write)
- - Target: target/config/prometheus.yaml
+ - Origin : [origin/config/prometheus-remote-write-backfill.yml] (Remote-write)
+ - Target: [target/config/prometheus.yml]
 
 Execute : `docker-compose -f docker-compose-remote-write-backfill.yaml up`
 
@@ -44,14 +59,14 @@ Target doesn't have the datas [query](http://localhost:9091/graph?g0.expr=coffee
 
 ## Remote-read with backfill
 
-2 prometheus
- - Origin (9090) with existing datas
- - Target (9091) with no data
+Setup :
+ - Prometheus Origin (9090) with existing datas
+ - Prometheus Target (9091) with no data
  - Sample application
 
 Configuration :
- - Origin : origin/config/prometheus-remote-write-backfill.yml
- - Target: target/config/prometheus.yaml (Remote-read + Scape application)
+ - Origin : [origin/config/prometheus-remote-write-backfill.yml]
+ - Target: [target/config/prometheus.yml] (Remote-read + Scape application)
 
 Execute : `docker-compose -f docker-compose-remote-read.yaml up`
 
