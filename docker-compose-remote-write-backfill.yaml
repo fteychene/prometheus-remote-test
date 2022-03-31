@@ -31,7 +31,3 @@ services:
       - type: bind
         source: target/config
         target: /etc/config
-
-volumes:
-  originData:
-  targetData:

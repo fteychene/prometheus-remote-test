@@ -29,7 +29,3 @@ services:
       - type: bind
         source: target/config/prometheus.yml
         target: /etc/config/prometheus.yml
-
-volumes:
-  originData:
-  targetData:
