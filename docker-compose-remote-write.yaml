@@ -28,8 +28,8 @@ services:
       - 9091:9090
     volumes:
       - type: bind
-        source: target/config
-        target: /etc/config
+        source: target/config/prometheus-remote-write.yml
+        target: /etc/config/prometheus.yml
 
 volumes:
   originData:
