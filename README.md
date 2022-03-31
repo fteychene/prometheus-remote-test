@@ -18,9 +18,8 @@ Configuration :
 
  Execute : ``
 
- Query sample in origin =>[http://localhost:9090/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h
- Query sample in target => http://localhost:9091/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h
-
+ [http://localhost:9090/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h](Query) sample in origin  
+ [http://localhost:9091/graph?g0.expr=coffee_drank_cl&g0.tab=0&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h](Query) sample in target
 ## Remote-write
 
 Setup :
@@ -29,8 +28,8 @@ Setup :
  - Sample application
 
 Configuration :
- - Origin : [origin/config/prometheus-remote-write.yml] (Remote-write + Scrape application)
- - Target: [target/config/prometheus.yml]
+ - Origin : [origin/config/prometheus-remote-write.yml]() (Remote-write + Scrape application)
+ - Target: [target/config/prometheus.yml]()
 
 Execute : `docker-compose -f docker-compose-remote-write.yaml up`
 
@@ -47,8 +46,8 @@ Setup :
  - Prometheus Target (9091) with no data
 
 Configuration :
- - Origin : [origin/config/prometheus-remote-write-backfill.yml] (Remote-write)
- - Target: [target/config/prometheus.yml]
+ - Origin : [origin/config/prometheus-remote-write-backfill.yml]() (Remote-write)
+ - Target: [target/config/prometheus.yml]()
 
 Execute : `docker-compose -f docker-compose-remote-write-backfill.yaml up`
 
@@ -65,8 +64,8 @@ Setup :
  - Sample application
 
 Configuration :
- - Origin : [origin/config/prometheus-remote-write-backfill.yml]
- - Target: [target/config/prometheus.yml] (Remote-read + Scape application)
+ - Origin : [origin/config/prometheus-remote-write-backfill.yml]()
+ - Target: [target/config/prometheus.yml]() (Remote-read + Scape application)
 
 Execute : `docker-compose -f docker-compose-remote-read.yaml up`
 
