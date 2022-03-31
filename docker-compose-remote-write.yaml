@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  samples:
+    image: startree/prometheus-sample-app:1.0.0
+    ports:
+     - 8080:8080
+  origin:
+    image: quay.io/prometheus/prometheus:v2.31.1
+    command:
+      - --storage.tsdb.retention.time=15d
+      - --config.file=/etc/config/prometheus.yml
+      - --web.enable-lifecycle
+    ports:
+      - 9090:9090
+    volumes:
+      - type: bind
+        source: origin/config/prometheus-remote-write.yml
+        target: /etc/config/prometheus.yml
+  target:
+    image: quay.io/prometheus/prometheus:v2.34.0
+    command:
+      - --storage.tsdb.retention.time=15d
+      - --config.file=/etc/config/prometheus.yml
+      - --web.enable-lifecycle
+      - --web.enable-remote-write-receiver
+    ports:
+      - 9091:9090
+    volumes:
+      - type: bind
+        source: target/config
+        target: /etc/config
+
+volumes:
+  originData:
+  targetData:

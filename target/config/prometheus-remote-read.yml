@@ -1,0 +1,12 @@
+
+remote_read:
+  - url: "http://origin:9090/api/v1/read"
+    name: "origin"
+
+scrape_configs:
+  - job_name: sample
+    scheme: http
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+        - "samples:8080"

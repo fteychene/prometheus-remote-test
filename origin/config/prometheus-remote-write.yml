@@ -1,0 +1,12 @@
+
+remote_write:
+  - url: "http://target:9090/api/v1/write"
+    name: "target"
+
+scrape_configs:
+  - job_name: sample
+    scheme: http
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+        - "samples:8080"
