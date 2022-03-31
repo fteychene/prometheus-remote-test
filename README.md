@@ -13,8 +13,8 @@ Setup :
  - Sample application
 
 Configuration :
- - Origin : [origin/config/prometheus.yml]() (Scrape application)
- - Target: [target/config/prometheus.yml]() (Scrape application)
+ - Origin : [origin/config/prometheus.yml](origin/config/prometheus.yml) (Scrape application)
+ - Target: [](target/config/prometheus.yml) (Scrape application)
 
  Execute : `docker-compose up`
 
